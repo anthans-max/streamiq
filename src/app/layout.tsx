@@ -29,23 +29,23 @@ const BASE_URL = "https://streamiq.lotusailab.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: "StreamIQ — AI Analytics for OTT Streaming",
+  title: "StreamIQ — AI Analytics for Any Dataset",
   description:
-    "StreamIQ by Lotus AI Lab. Upload your streaming data and get instant AI-powered insights on content performance, audience behavior, and revenue trends.",
+    "StreamIQ by Lotus AI Lab. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
   keywords: [
-    "OTT analytics",
-    "streaming data",
-    "AI insights",
-    "content performance",
+    "AI analytics",
+    "data insights",
+    "business intelligence",
+    "AI analyst",
     "Lotus AI Lab",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "StreamIQ — AI Analytics for OTT Streaming",
+    title: "StreamIQ — AI Analytics for Any Dataset",
     description:
-      "StreamIQ by Lotus AI Lab. Upload your streaming data and get instant AI-powered insights on content performance, audience behavior, and revenue trends.",
+      "StreamIQ by Lotus AI Lab. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
     type: "website",
     url: BASE_URL,
     siteName: "StreamIQ",
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "StreamIQ — AI Analytics for OTT Streaming Platforms",
+        alt: "StreamIQ — AI Analytics Platform by Lotus AI Lab",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "StreamIQ — AI Analytics for OTT Streaming",
+    title: "StreamIQ — AI Analytics for Any Dataset",
     description:
-      "StreamIQ by Lotus AI Lab. Upload your streaming data and get instant AI-powered insights on content performance, audience behavior, and revenue trends.",
+      "StreamIQ by Lotus AI Lab. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
     images: ["/og-image.png"],
   },
 };

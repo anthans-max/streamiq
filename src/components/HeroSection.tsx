@@ -24,8 +24,8 @@ const heroStats = [
 ];
 
 const stripStats = [
-  { l: "Content Titles Analyzed", v: "10,000+" },
-  { l: "Streaming Data Points", v: "500M+" },
+  { l: "Records Analyzed", v: "10,000+" },
+  { l: "Data Points Processed", v: "500M+" },
   { l: "AI Insights Generated", v: "Real-Time" },
   { l: "Built by Lotus AI Lab", v: "Thoughtfully" },
 ];
@@ -163,9 +163,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                 marginBottom: "2rem",
               }}
             >
-              An AI-powered analytics platform for OTT & streaming organizations. Upload your
-              content data, surface hidden insights, and converse with an AI analyst that
-              understands the business of entertainment.
+              An AI-powered analytics platform for any organization with data. Upload your
+              datasets, surface hidden insights, and converse with an AI analyst that
+              understands the patterns in your business.
             </p>
             <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
               <button

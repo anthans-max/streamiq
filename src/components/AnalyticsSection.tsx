@@ -142,7 +142,7 @@ export default function AnalyticsSection() {
         <em style={{ fontStyle: "italic", color: "var(--gold)" }}>Understand.</em>
       </h2>
       <p className="section-sub" style={{ marginBottom: "2rem" }}>
-        Drop in any streaming CSV — content performance, audience data, revenue reports.
+        Drop in any CSV — sales reports, content metrics, financial data, audience analytics.
         StreamIQ&apos;s AI surfaces insights instantly.
       </p>
 
@@ -176,10 +176,10 @@ export default function AnalyticsSection() {
           />
           <div style={{ fontSize: "2.5rem", marginBottom: "0.875rem", opacity: 0.4 }}>⊕</div>
           <div style={{ fontSize: "1rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>
-            Tap to upload a CSV file
+            Tap to upload any CSV file
           </div>
           <div style={{ fontSize: "0.8rem", color: "var(--text-dim)", marginBottom: "1.5rem" }}>
-            Streaming data, content metrics, audience reports
+            Sales data, content metrics, financial reports, audience analytics
           </div>
           <button
             className="btn-ghost"
@@ -420,7 +420,7 @@ export default function AnalyticsSection() {
               {aiInsight ||
                 (loading ? (
                   <span style={{ color: "var(--text-dim)", fontStyle: "italic" }}>
-                    Analyzing your streaming data…
+                    Analyzing your data…
                   </span>
                 ) : null)}
             </div>

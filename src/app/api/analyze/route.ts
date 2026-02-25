@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     messages: [
       {
         role: "user",
-        content: `You are StreamIQ, an expert AI analyst for OTT streaming platforms built by Lotus AI Lab. Analyze this streaming content data and provide 3-4 sharp, actionable business insights in 180 words or less. Be specific. Data: ${JSON.stringify(data)}. Respond with insight paragraphs only, no headers or bullets.`,
+        content: `You are StreamIQ, an expert AI data analyst built by Lotus AI Lab. Infer the domain and context from the data itself and tailor your language accordingly. Analyze this dataset and provide 3-4 sharp, actionable business insights in 180 words or less. Be specific. Data: ${JSON.stringify(data)}. Respond with insight paragraphs only, no headers or bullets.`,
       },
     ],
   });

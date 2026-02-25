@@ -77,11 +77,11 @@ export default function UseCasesSection({ onNavigate }: UseCasesSectionProps) {
 
   return (
     <div className="section">
-      <p className="section-label">AI Use Cases · OTT &amp; Streaming</p>
+      <p className="section-label">AI Use Cases · Powered by Lotus AI Lab</p>
       <h2 className="section-title">
         How AI transforms
         <br />
-        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>streaming organizations.</em>
+        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>data-driven organizations.</em>
       </h2>
       <p className="section-sub" style={{ marginBottom: "2rem" }}>
         These are the AI systems Lotus AI Lab designs and builds. Tap any to see how the

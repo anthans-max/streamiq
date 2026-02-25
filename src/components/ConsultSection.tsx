@@ -30,7 +30,7 @@ const services = [
 
 const formFields: { k: keyof FormState; l: string; p: string }[] = [
   { k: "name", l: "Your Name", p: "Jane Smith" },
-  { k: "org", l: "Organization", p: "Acme Streaming Co." },
+  { k: "org", l: "Organization", p: "Acme Corp." },
   { k: "role", l: "Your Role", p: "VP Product / CTO / etc." },
   { k: "interest", l: "Area of Interest", p: "Recommendations, analytics, churn…" },
 ];

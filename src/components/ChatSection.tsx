@@ -8,10 +8,10 @@ interface Message {
 }
 
 const SUGGESTIONS = [
-  "What genres drive the highest completion rates?",
+  "What patterns drive the highest completion rates?",
   "How can AI improve recommendations?",
   "What does churn prediction look like?",
-  "How should OTT use AI for pricing?",
+  "How can AI improve dynamic pricing strategies?",
 ];
 
 export default function ChatSection() {
@@ -19,7 +19,7 @@ export default function ChatSection() {
     {
       role: "assistant",
       content:
-        "Hello. I'm StreamIQ, your AI analyst for OTT and streaming strategy. I can help you understand content performance trends, audience segmentation, monetization strategy, and how AI can transform your streaming operation. What would you like to explore?",
+        "Hello. I'm StreamIQ, your AI analyst built by Lotus AI Lab. I can help you understand performance trends, audience segmentation, monetization strategy, and how AI can transform your operations. What would you like to explore?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -97,11 +97,11 @@ export default function ChatSection() {
       <h2 className="section-title">
         Ask anything about
         <br />
-        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>streaming &amp; AI.</em>
+        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>your data &amp; AI.</em>
       </h2>
       <p className="section-sub" style={{ marginBottom: "1.25rem" }}>
-        StreamIQ&apos;s AI analyst is trained on OTT strategy, content economics, and AI
-        applications in media.
+        StreamIQ&apos;s AI analyst can help you explore your data, understand trends, and
+        discover how AI can transform your operations.
       </p>
 
       {/* Suggestion pills */}
@@ -215,7 +215,7 @@ export default function ChatSection() {
             ref={inputRef}
             className="input-field"
             style={{ flex: 1 }}
-            placeholder="Ask about streaming, AI, content…"
+            placeholder="Ask about your data, trends, AI…"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && send()}
