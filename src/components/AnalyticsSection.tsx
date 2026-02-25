@@ -24,6 +24,7 @@ export default function AnalyticsSection() {
   const [loading, setLoading] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [activeChart, setActiveChart] = useState("streams");
+  const [exporting, setExporting] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const processData = useCallback(async (text: string, name: string) => {
@@ -71,6 +72,17 @@ export default function AnalyticsSection() {
       setLoading(false);
     }
   }, []);
+
+  const handleExport = async () => {
+    if (!data || !aiInsight || !fileName) return;
+    setExporting(true);
+    try {
+      const { exportReport } = await import("@/lib/exportPdf");
+      exportReport({ data, aiInsight, fileName });
+    } finally {
+      setExporting(false);
+    }
+  };
 
   const loadSample = () => processData(SAMPLE_CSV, "sample_streaming_data.csv");
   const handleFile = (file: File) => {
@@ -195,13 +207,25 @@ export default function AnalyticsSection() {
                 {data.length} records
               </span>
             </div>
-            <button
-              className="btn-ghost"
-              style={{ fontSize: "0.68rem", padding: "0.4rem 0.8rem", minHeight: 36 }}
-              onClick={() => { setData(null); setAiInsight(""); }}
-            >
-              Upload New
-            </button>
+            <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+              {aiInsight && !loading && (
+                <button
+                  className="btn-ghost"
+                  style={{ fontSize: "0.68rem", padding: "0.4rem 0.8rem", minHeight: 36 }}
+                  onClick={handleExport}
+                  disabled={exporting}
+                >
+                  {exporting ? "Generating…" : "↓ Download Report"}
+                </button>
+              )}
+              <button
+                className="btn-ghost"
+                style={{ fontSize: "0.68rem", padding: "0.4rem 0.8rem", minHeight: 36 }}
+                onClick={() => { setData(null); setAiInsight(""); setExporting(false); }}
+              >
+                Upload New
+              </button>
+            </div>
           </div>
 
           {/* KPIs */}
