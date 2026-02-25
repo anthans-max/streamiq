@@ -1,73 +1,72 @@
 import { NextRequest } from "next/server";
-import Airtable from "airtable";
 import { Resend } from "resend";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const form = await req.json();
   const { name, org, role, interest, message } = form;
 
-  const errors: string[] = [];
+  // ── Save lead to Supabase ─────────────────────────────────────────────────
+  const { error: dbError } = await supabase.from("leads").insert([
+    {
+      name,
+      organization: org,
+      role,
+      interest,
+      message,
+      created_at: new Date().toISOString(),
+    },
+  ]);
 
-  // ── Save to Airtable ──────────────────────────────────────────────────────
-  if (
-    process.env.AIRTABLE_API_KEY &&
-    process.env.AIRTABLE_BASE_ID &&
-    process.env.AIRTABLE_TABLE_NAME
-  ) {
-    try {
-      const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-        process.env.AIRTABLE_BASE_ID
-      );
-      await base(process.env.AIRTABLE_TABLE_NAME).create([
-        {
-          fields: {
-            Name: name,
-            Organization: org,
-            Role: role,
-            Interest: interest,
-            Message: message,
-            Timestamp: new Date().toISOString(),
-          },
-        },
-      ]);
-    } catch (err) {
-      console.error("Airtable error:", err);
-      errors.push("airtable");
-    }
+  if (dbError) {
+    console.error("Supabase insert error:", dbError);
+    return Response.json({ success: false, error: "db" }, { status: 500 });
   }
 
-  // ── Send email via Resend ─────────────────────────────────────────────────
-  if (process.env.RESEND_API_KEY && process.env.NOTIFICATION_EMAIL) {
+  // ── Send email notification via Resend ────────────────────────────────────
+  if (process.env.RESEND_API_KEY && process.env.RESEND_TO_EMAIL) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
       await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL ?? "noreply@streamiq.ai",
-        to: process.env.NOTIFICATION_EMAIL,
+        from: process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev",
+        to: process.env.RESEND_TO_EMAIL,
         subject: `New StreamIQ inquiry from ${name} at ${org}`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; color: #1a1a1a;">
-            <h2 style="color: #c9a84c;">New Consultation Request — StreamIQ</h2>
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr><td style="padding: 8px 0; color: #666; width: 120px;"><strong>Name</strong></td><td>${name}</td></tr>
-              <tr><td style="padding: 8px 0; color: #666;"><strong>Organization</strong></td><td>${org}</td></tr>
-              <tr><td style="padding: 8px 0; color: #666;"><strong>Role</strong></td><td>${role}</td></tr>
-              <tr><td style="padding: 8px 0; color: #666;"><strong>Interest</strong></td><td>${interest}</td></tr>
+            <h2 style="color: #c9a84c; margin-bottom: 20px;">New Consultation Request — StreamIQ</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #666; width: 130px; font-weight: bold;">Name</td>
+                <td style="padding: 10px 0;">${name}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #666; font-weight: bold;">Organization</td>
+                <td style="padding: 10px 0;">${org}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #666; font-weight: bold;">Role</td>
+                <td style="padding: 10px 0;">${role}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #666; font-weight: bold;">Interest</td>
+                <td style="padding: 10px 0;">${interest}</td>
+              </tr>
             </table>
-            <div style="margin-top: 16px; padding: 16px; background: #f9f9f9; border-radius: 4px;">
-              <strong>Message:</strong>
-              <p style="margin-top: 8px;">${message}</p>
+            <div style="padding: 16px; background: #f9f9f9; border-left: 3px solid #c9a84c; border-radius: 2px;">
+              <strong style="color: #333;">Message</strong>
+              <p style="margin-top: 8px; color: #555; line-height: 1.6;">${message}</p>
             </div>
-            <p style="margin-top: 24px; font-size: 12px; color: #999;">Submitted ${new Date().toLocaleString()}</p>
+            <p style="margin-top: 24px; font-size: 12px; color: #999;">
+              Submitted ${new Date().toLocaleString()} · via StreamIQ by Lotus AI Lab
+            </p>
           </div>
         `,
       });
     } catch (err) {
+      // Email failure is non-critical — lead is already saved; log and continue.
       console.error("Resend error:", err);
-      errors.push("resend");
     }
   }
 
-  // Return success even if integrations are not configured — the form submission
-  // still counts as received from the user's perspective.
-  return Response.json({ success: true, warnings: errors });
+  return Response.json({ success: true });
 }
