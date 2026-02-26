@@ -25,7 +25,7 @@ const outfit = Outfit({
   display: "swap",
 });
 
-const BASE_URL = "https://streamiq.lotusailab.com";
+const BASE_URL = "https://lotusailab.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

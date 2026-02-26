@@ -137,7 +137,7 @@ export default function ConsultSection() {
           &ldquo;Thoughtfully engineered intelligent systems.&rdquo;
         </div>
         <a
-          href="https://lotusailab.framer.ai"
+          href="https://lotusailab.app"
           target="_blank"
           rel="noreferrer"
           style={{
@@ -149,7 +149,7 @@ export default function ConsultSection() {
             letterSpacing: "0.1em",
           }}
         >
-          Visit lotusailab.framer.ai →
+          Visit lotusailab.app →
         </a>
       </div>
 
@@ -195,12 +195,12 @@ export default function ConsultSection() {
               <div style={{ fontSize: "0.7rem", color: "var(--text-dim)", textAlign: "center" }}>
                 Or visit{" "}
                 <a
-                  href="https://lotusailab.framer.ai"
+                  href="https://lotusailab.app"
                   target="_blank"
                   rel="noreferrer"
                   style={{ color: "var(--gold)" }}
                 >
-                  lotusailab.framer.ai
+                  lotusailab.app
                 </a>{" "}
                 directly
               </div>
@@ -235,7 +235,7 @@ export default function ConsultSection() {
             >
               Your message has been received. The Lotus AI Lab team will be in touch shortly.
             </div>
-            <a href="https://lotusailab.framer.ai" target="_blank" rel="noreferrer">
+            <a href="https://lotusailab.app" target="_blank" rel="noreferrer">
               <button className="btn-ghost">Visit Our Site →</button>
             </a>
           </div>

@@ -49,13 +49,13 @@ export default function Footer({ onNavigate }: FooterProps) {
             </span>
           ))}
           <a
-            href="https://lotusailab.framer.ai"
+            href="https://lotusailab.app"
             target="_blank"
             rel="noreferrer"
             className="nav-link"
             style={{ color: "var(--gold)", fontSize: "0.72rem" }}
           >
-            lotusailab.framer.ai ↗
+            lotusailab.app ↗
           </a>
         </div>
       </div>

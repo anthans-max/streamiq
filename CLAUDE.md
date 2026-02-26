@@ -25,6 +25,8 @@ No test runner is configured. Verify changes by running `npm run build` and chec
 
 **Contact form** (`/api/contact`) inserts a row into the Supabase `leads` table via a server-only client (`src/lib/supabase.ts`). A Supabase failure returns HTTP 500 so the front-end error state is shown. Resend email is also sent but is non-critical — a Resend failure is logged and the route still returns 200.
 
+**PDF export** (`src/lib/exportPdf.ts`) is a pure client-side utility using `jsPDF`. It receives the parsed `DataRow[]` array and the completed AI insight string, then generates and triggers a download of a multi-page A4 PDF. It is called directly from `AnalyticsSection` — there is no API route involved.
+
 ## Environment Variables
 
 Copy `.env.local.example` to `.env.local`. `ANTHROPIC_API_KEY` is required for AI features. Supabase vars are required for the contact form.
@@ -51,3 +53,4 @@ create table leads (
 - The app uses `model: "claude-sonnet-4-20250514"` in both API routes. Use the same model string for any new AI routes.
 - `useIsMobile` hook guards `window.innerWidth` with an SSR check; use it whenever you need viewport-conditional rendering in client components.
 - Charts (`BarChart`, `DonutChart`, `Sparkline`) are custom SVG components — no chart library is used.
+- `public/og-image.png` is a static 1200×630 OG image. Regenerate it with `node scripts/generate-og.js` (requires `sharp`, already a devDependency). Do not edit the PNG directly.
