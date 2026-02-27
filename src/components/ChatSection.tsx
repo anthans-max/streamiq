@@ -19,7 +19,7 @@ export default function ChatSection() {
     {
       role: "assistant",
       content:
-        "Hello. I'm StreamIQ, your AI analyst built by Lotus AI Lab. I can help you understand performance trends, audience segmentation, monetization strategy, and how AI can transform your operations. What would you like to explore?",
+        "Hello. I'm StreamIQ, your AI analyst built by Lotus AI. I can help you understand performance trends, audience segmentation, monetization strategy, and how AI can transform your operations. What would you like to explore?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -135,21 +135,11 @@ export default function ChatSection() {
             gap: "0.6rem",
           }}
         >
-          <div
-            style={{
-              width: 24,
-              height: 24,
-              borderRadius: "50%",
-              background: "linear-gradient(135deg,var(--gold),#6b4f1e)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "0.6rem",
-              flexShrink: 0,
-            }}
-          >
-            ❋
-          </div>
+          <img
+            src="/lotus-logo.png"
+            alt="Lotus AI"
+            style={{ width: 24, height: 24, flexShrink: 0, objectFit: "contain" }}
+          />
           <div style={{ fontSize: "0.8rem", color: "var(--text)", flex: 1 }}>
             StreamIQ AI Analyst
           </div>
@@ -245,7 +235,7 @@ export default function ChatSection() {
             marginBottom: "0.4rem",
           }}
         >
-          Lotus AI Lab
+          Lotus AI
         </div>
         <div
           style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.55, marginBottom: "0.5rem" }}

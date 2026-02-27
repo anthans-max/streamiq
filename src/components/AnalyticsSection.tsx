@@ -365,21 +365,11 @@ export default function AnalyticsSection() {
                 marginBottom: "0.875rem",
               }}
             >
-              <div
-                style={{
-                  width: 28,
-                  height: 28,
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg,var(--gold),#6b4f1e)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "0.75rem",
-                  flexShrink: 0,
-                }}
-              >
-                ❋
-              </div>
+              <img
+                src="/lotus-logo.png"
+                alt="Lotus AI"
+                style={{ width: 28, height: 28, flexShrink: 0, objectFit: "contain" }}
+              />
               <div>
                 <div
                   style={{
@@ -389,7 +379,7 @@ export default function AnalyticsSection() {
                     textTransform: "uppercase",
                   }}
                 >
-                  AI Analyst · Lotus AI Lab
+                  AI Analyst · Lotus AI
                 </div>
                 <div style={{ fontSize: "0.62rem", color: "var(--text-dim)" }}>
                   Powered by Claude

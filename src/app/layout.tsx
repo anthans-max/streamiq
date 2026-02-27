@@ -25,19 +25,19 @@ const outfit = Outfit({
   display: "swap",
 });
 
-const BASE_URL = "https://lotusailab.app";
+const BASE_URL = "https://getlotusai.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: "StreamIQ — AI Analytics for Any Dataset",
   description:
-    "StreamIQ by Lotus AI Lab. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
+    "StreamIQ by Lotus AI. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
   keywords: [
     "AI analytics",
     "data insights",
     "business intelligence",
     "AI analyst",
-    "Lotus AI Lab",
+    "Lotus AI",
   ],
   alternates: {
     canonical: "/",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "StreamIQ — AI Analytics for Any Dataset",
     description:
-      "StreamIQ by Lotus AI Lab. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
+      "StreamIQ by Lotus AI. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
     type: "website",
     url: BASE_URL,
     siteName: "StreamIQ",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "StreamIQ — AI Analytics Platform by Lotus AI Lab",
+        alt: "StreamIQ — AI Analytics Platform by Lotus AI",
       },
     ],
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "StreamIQ — AI Analytics for Any Dataset",
     description:
-      "StreamIQ by Lotus AI Lab. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
+      "StreamIQ by Lotus AI. Upload any dataset and get instant AI-powered insights on performance, trends, and opportunities.",
     images: ["/og-image.png"],
   },
 };

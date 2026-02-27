@@ -48,21 +48,11 @@ export default function Nav({ active, onNavigate }: NavProps) {
             style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer" }}
             onClick={() => go("home")}
           >
-            <div
-              style={{
-                width: 26,
-                height: 26,
-                borderRadius: "50%",
-                background: "linear-gradient(135deg,var(--gold),#6b4f1e)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "0.65rem",
-                flexShrink: 0,
-              }}
-            >
-              ❋
-            </div>
+            <img
+              src="/lotus-logo.png"
+              alt="Lotus AI"
+              style={{ width: 26, height: 26, flexShrink: 0, objectFit: "contain" }}
+            />
             <span style={{ fontSize: "0.85rem", color: "var(--text)" }}>StreamIQ</span>
           </div>
 

@@ -82,7 +82,7 @@ const svg = `
     font-family="Arial, Helvetica, sans-serif"
     font-size="18"
     fill="#606060"
-    letter-spacing="2">by Lotus AI Lab</text>
+    letter-spacing="2">by Lotus AI</text>
 
   <!-- Bottom-left corner accent -->
   <rect x="80" y="${H - 60}" width="40" height="1" fill="#C9A84C" opacity="0.4"/>

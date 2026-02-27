@@ -27,7 +27,7 @@ const stripStats = [
   { l: "Records Analyzed", v: "10,000+" },
   { l: "Data Points Processed", v: "500M+" },
   { l: "AI Insights Generated", v: "Real-Time" },
-  { l: "Built by Lotus AI Lab", v: "Thoughtfully" },
+  { l: "Built by Lotus AI", v: "Thoughtfully" },
 ];
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
@@ -101,21 +101,11 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             flexWrap: "wrap",
           }}
         >
-          <div
-            style={{
-              width: 28,
-              height: 28,
-              borderRadius: "50%",
-              background: "linear-gradient(135deg,var(--gold),#6b4f1e)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "0.8rem",
-              flexShrink: 0,
-            }}
-          >
-            ❋
-          </div>
+          <img
+            src="/lotus-logo.png"
+            alt="Lotus AI"
+            style={{ width: 28, height: 28, flexShrink: 0, objectFit: "contain" }}
+          />
           <span
             style={{
               fontSize: "0.72rem",
@@ -124,7 +114,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               color: "var(--text-muted)",
             }}
           >
-            Lotus AI Lab
+            Lotus AI
           </span>
           <div style={{ flex: 1, minWidth: 20, height: 1, background: "var(--border)" }} />
           <span className="tag">Live Demo</span>
@@ -180,7 +170,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                 onClick={() => onNavigate("consult")}
                 style={{ flex: mob ? "1 1 auto" : "0 0 auto" }}
               >
-                Engage Lotus AI Lab
+                Engage Lotus AI
               </button>
             </div>
           </div>

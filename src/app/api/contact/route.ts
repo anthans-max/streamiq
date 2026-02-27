@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
               <p style="margin-top: 8px; color: #555; line-height: 1.6;">${message}</p>
             </div>
             <p style="margin-top: 24px; font-size: 12px; color: #999;">
-              Submitted ${new Date().toLocaleString()} · via StreamIQ by Lotus AI Lab
+              Submitted ${new Date().toLocaleString()} · via StreamIQ by Lotus AI
             </p>
           </div>
         `,

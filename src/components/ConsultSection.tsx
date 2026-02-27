@@ -67,7 +67,7 @@ export default function ConsultSection() {
       <h2 className="section-title">
         Build your AI system
         <br />
-        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>with Lotus AI Lab.</em>
+        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>with Lotus AI.</em>
       </h2>
       <p
         style={{
@@ -77,7 +77,7 @@ export default function ConsultSection() {
           marginBottom: "2rem",
         }}
       >
-        What you&apos;ve explored in this demo is a glimpse of what&apos;s possible. Lotus AI Lab
+        What you&apos;ve explored in this demo is a glimpse of what&apos;s possible. Lotus AI
         designs and engineers production-grade AI systems — thoughtfully built for the specific
         context of your organization.
       </p>
@@ -123,7 +123,7 @@ export default function ConsultSection() {
             marginBottom: "0.5rem",
           }}
         >
-          Lotus AI Lab
+          Lotus AI
         </div>
         <div
           style={{
@@ -137,7 +137,7 @@ export default function ConsultSection() {
           &ldquo;Thoughtfully engineered intelligent systems.&rdquo;
         </div>
         <a
-          href="https://lotusailab.app"
+          href="https://getlotusai.com"
           target="_blank"
           rel="noreferrer"
           style={{
@@ -149,7 +149,7 @@ export default function ConsultSection() {
             letterSpacing: "0.1em",
           }}
         >
-          Visit lotusailab.app →
+          Visit getlotusai.com →
         </a>
       </div>
 
@@ -190,17 +190,17 @@ export default function ConsultSection() {
                 onClick={handleSubmit}
                 disabled={submitting}
               >
-                {submitting ? "Sending…" : "Send to Lotus AI Lab →"}
+                {submitting ? "Sending…" : "Send to Lotus AI →"}
               </button>
               <div style={{ fontSize: "0.7rem", color: "var(--text-dim)", textAlign: "center" }}>
                 Or visit{" "}
                 <a
-                  href="https://lotusailab.app"
+                  href="https://getlotusai.com"
                   target="_blank"
                   rel="noreferrer"
                   style={{ color: "var(--gold)" }}
                 >
-                  lotusailab.app
+                  getlotusai.com
                 </a>{" "}
                 directly
               </div>
@@ -233,9 +233,9 @@ export default function ConsultSection() {
                 marginBottom: "1.5rem",
               }}
             >
-              Your message has been received. The Lotus AI Lab team will be in touch shortly.
+              Your message has been received. The Lotus AI team will be in touch shortly.
             </div>
-            <a href="https://lotusailab.app" target="_blank" rel="noreferrer">
+            <a href="https://getlotusai.com" target="_blank" rel="noreferrer">
               <button className="btn-ghost">Visit Our Site →</button>
             </a>
           </div>

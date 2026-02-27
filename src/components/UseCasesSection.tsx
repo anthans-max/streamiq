@@ -18,7 +18,7 @@ const cases: UseCase[] = [
     title: "Recommendation Engines",
     teaser: "Personalize every viewer's feed with ML-driven content matching.",
     detail:
-      "Deep learning models analyze watch history, completion patterns, time-of-day behavior, and social signals to serve hyper-personalized recommendations — reducing churn by up to 30% and increasing session length. Lotus AI Lab has architected these systems for organizations with catalogs ranging from 500 to 50,000+ titles.",
+      "Deep learning models analyze watch history, completion patterns, time-of-day behavior, and social signals to serve hyper-personalized recommendations — reducing churn by up to 30% and increasing session length. Lotus AI has architected these systems for organizations with catalogs ranging from 500 to 50,000+ titles.",
     impact: ["↓ 28% churn", "↑ 34% session", "↑ 19% discovery"],
   },
   {
@@ -77,14 +77,14 @@ export default function UseCasesSection({ onNavigate }: UseCasesSectionProps) {
 
   return (
     <div className="section">
-      <p className="section-label">AI Use Cases · Powered by Lotus AI Lab</p>
+      <p className="section-label">AI Use Cases · Powered by Lotus AI</p>
       <h2 className="section-title">
         How AI transforms
         <br />
         <em style={{ fontStyle: "italic", color: "var(--gold)" }}>data-driven organizations.</em>
       </h2>
       <p className="section-sub" style={{ marginBottom: "2rem" }}>
-        These are the AI systems Lotus AI Lab designs and builds. Tap any to see how the
+        These are the AI systems Lotus AI designs and builds. Tap any to see how the
         technology works and what outcomes it drives.
       </p>
       <div className="grid-3">
@@ -161,7 +161,7 @@ export default function UseCasesSection({ onNavigate }: UseCasesSectionProps) {
           Ready to build one of these systems for your organization?
         </p>
         <button className="btn-primary animate-glow" onClick={() => onNavigate("consult")}>
-          Engage Lotus AI Lab →
+          Engage Lotus AI →
         </button>
       </div>
     </div>

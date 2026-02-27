@@ -16,22 +16,13 @@ export default function Footer({ onNavigate }: FooterProps) {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <div
-            style={{
-              width: 24,
-              height: 24,
-              borderRadius: "50%",
-              background: "linear-gradient(135deg,var(--gold),#6b4f1e)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "0.6rem",
-            }}
-          >
-            ❋
-          </div>
+          <img
+            src="/lotus-logo.png"
+            alt="Lotus AI"
+            style={{ width: 24, height: 24, objectFit: "contain" }}
+          />
           <div>
-            <div style={{ fontSize: "0.8rem", color: "var(--text)" }}>StreamIQ by Lotus AI Lab</div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text)" }}>StreamIQ by Lotus AI</div>
             <div style={{ fontSize: "0.62rem", color: "var(--text-dim)" }}>
               Thoughtfully engineered intelligent systems.
             </div>
@@ -49,13 +40,13 @@ export default function Footer({ onNavigate }: FooterProps) {
             </span>
           ))}
           <a
-            href="https://lotusailab.app"
+            href="https://getlotusai.com"
             target="_blank"
             rel="noreferrer"
             className="nav-link"
             style={{ color: "var(--gold)", fontSize: "0.72rem" }}
           >
-            lotusailab.app ↗
+            getlotusai.com ↗
           </a>
         </div>
       </div>
