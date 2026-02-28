@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Mono, Outfit } from "next/font/google";
+import { Cormorant_Garamond, DM_Mono, Outfit, Syne } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -22,6 +22,13 @@ const outfit = Outfit({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-syne",
   display: "swap",
 });
 
@@ -75,7 +82,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorantGaramond.variable} ${dmMono.variable} ${outfit.variable}`}
+      className={`${cormorantGaramond.variable} ${dmMono.variable} ${outfit.variable} ${syne.variable}`}
     >
       <body>
         {children}

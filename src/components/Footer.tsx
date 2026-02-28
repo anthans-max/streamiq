@@ -21,11 +21,15 @@ export default function Footer({ onNavigate }: FooterProps) {
             alt="Lotus AI"
             style={{ width: 24, height: 24, objectFit: "contain" }}
           />
-          <div>
-            <div style={{ fontSize: "0.8rem", color: "var(--text)" }}>StreamIQ by Lotus AI</div>
-            <div style={{ fontSize: "0.62rem", color: "var(--text-dim)" }}>
-              Thoughtfully engineered intelligent systems.
-            </div>
+          <div
+            style={{
+              fontFamily: "var(--font-syne)",
+              fontSize: "0.75rem",
+              color: "var(--text-muted)",
+              letterSpacing: "0.04em",
+            }}
+          >
+            Powered by Lotus AI
           </div>
         </div>
         <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
