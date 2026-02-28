@@ -101,21 +101,6 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             flexWrap: "wrap",
           }}
         >
-          <img
-            src="/lotus-logo.png"
-            alt="Lotus AI"
-            style={{ width: 28, height: 28, flexShrink: 0, objectFit: "contain" }}
-          />
-          <span
-            style={{
-              fontSize: "0.72rem",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "var(--text-muted)",
-            }}
-          >
-            Lotus AI
-          </span>
           <div style={{ flex: 1, minWidth: 20, height: 1, background: "var(--border)" }} />
           <span className="tag">Live Demo</span>
         </div>
