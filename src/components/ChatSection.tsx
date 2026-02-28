@@ -135,11 +135,7 @@ export default function ChatSection() {
             gap: "0.6rem",
           }}
         >
-          <img
-            src="/lotus-logo.png"
-            alt="Lotus AI"
-            style={{ width: 24, height: 24, flexShrink: 0, objectFit: "contain" }}
-          />
+          <span style={{ fontSize: "1.25rem", lineHeight: 1, flexShrink: 0, color: "var(--gold)" }}>❋</span>
           <div style={{ fontSize: "0.8rem", color: "var(--text)", flex: 1 }}>
             StreamIQ AI Analyst
           </div>

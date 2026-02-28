@@ -365,11 +365,7 @@ export default function AnalyticsSection() {
                 marginBottom: "0.875rem",
               }}
             >
-              <img
-                src="/lotus-logo.png"
-                alt="Lotus AI"
-                style={{ width: 28, height: 28, flexShrink: 0, objectFit: "contain" }}
-              />
+              <span style={{ fontSize: "1.25rem", lineHeight: 1, flexShrink: 0, color: "var(--gold)" }}>❋</span>
               <div>
                 <div
                   style={{
