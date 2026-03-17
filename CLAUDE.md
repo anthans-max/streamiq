@@ -23,28 +23,17 @@ No test runner is configured. Verify changes by running `npm run build` and chec
 
 **Streaming AI responses.** Both `/api/chat` and `/api/analyze` use `@anthropic-ai/sdk` with `client.messages.stream()` and forward native Anthropic SSE events verbatim to the client. The client-side parser (in `AnalyticsSection` and `ChatSection`) looks for `e.type === "content_block_delta" && e.delta?.type === "text_delta"` to extract text chunks.
 
-**Contact form** (`/api/contact`) inserts a row into the Supabase `leads` table via a server-only client (`src/lib/supabase.ts`). A Supabase failure returns HTTP 500 so the front-end error state is shown. Resend email is also sent but is non-critical — a Resend failure is logged and the route still returns 200.
+**Contact form** (`/api/contact`) logs the submission to the console and always returns success — there is no database. A hardcoded `DEMO_LEADS` array in the route shows representative sample data. Resend email is optional — if `RESEND_API_KEY` and `RESEND_TO_EMAIL` are set, a notification is sent; a failure is logged but the route still returns 200.
 
 **PDF export** (`src/lib/exportPdf.ts`) is a pure client-side utility using `jsPDF`. It receives the parsed `DataRow[]` array and the completed AI insight string, then generates and triggers a download of a multi-page A4 PDF. It is called directly from `AnalyticsSection` — there is no API route involved.
 
 ## Environment Variables
 
-Copy `.env.local.example` to `.env.local`. `ANTHROPIC_API_KEY` is required for AI features. Supabase vars are required for the contact form.
+Copy `.env.local.example` to `.env.local`. `ANTHROPIC_API_KEY` is required for AI features. No database is required.
 
 ```
 ANTHROPIC_API_KEY
-NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY   # leads table insert
 RESEND_API_KEY / RESEND_FROM_EMAIL / RESEND_TO_EMAIL   # optional email notification
-```
-
-The `leads` table schema (run once in the Supabase SQL editor):
-```sql
-create table leads (
-  id uuid primary key default gen_random_uuid(),
-  name text, organization text, role text,
-  interest text, message text,
-  created_at timestamptz default now()
-);
 ```
 
 ## Key Constraints

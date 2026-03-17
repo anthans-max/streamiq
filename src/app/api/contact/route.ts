@@ -1,29 +1,25 @@
 import { NextRequest } from "next/server";
 import { Resend } from "resend";
-import { supabase } from "@/lib/supabase";
+
+// Demo leads — representative sample of what real submissions look like.
+// No database is connected; submissions are logged to the console only.
+const DEMO_LEADS = [
+  { name: "Maya Chen", organization: "Meridian Health", role: "Chief Data Officer", interest: "Predictive analytics, patient outcomes" },
+  { name: "James Okafor", organization: "Northlight Media", role: "VP Product", interest: "Content recommendation engine" },
+  { name: "Sofia Reyes", organization: "Atlas Logistics", role: "Head of Engineering", interest: "Demand forecasting, route optimization" },
+  { name: "Daniel Park", organization: "Vantage Capital", role: "CTO", interest: "Portfolio risk modeling, anomaly detection" },
+  { name: "Priya Nair", organization: "Bloom Retail Group", role: "Director of Analytics", interest: "Customer churn, LTV prediction" },
+];
 
 export async function POST(req: NextRequest) {
   const form = await req.json();
   const { name, org, role, interest, message } = form;
 
-  // ── Save lead to Supabase ─────────────────────────────────────────────────
-  const { error: dbError } = await supabase.from("leads").insert([
-    {
-      name,
-      organization: org,
-      role,
-      interest,
-      message,
-      created_at: new Date().toISOString(),
-    },
-  ]);
+  // Log submission (no database in demo mode).
+  console.log("[contact] New submission:", { name, org, role, interest, message });
+  console.log("[contact] Demo leads sample:", DEMO_LEADS[0]);
 
-  if (dbError) {
-    console.error("Supabase insert error:", dbError);
-    return Response.json({ success: false, error: "db" }, { status: 500 });
-  }
-
-  // ── Send email notification via Resend ────────────────────────────────────
+  // ── Send email notification via Resend (optional) ─────────────────────────
   if (process.env.RESEND_API_KEY && process.env.RESEND_TO_EMAIL) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
@@ -63,7 +59,6 @@ export async function POST(req: NextRequest) {
         `,
       });
     } catch (err) {
-      // Email failure is non-critical — lead is already saved; log and continue.
       console.error("Resend error:", err);
     }
   }
